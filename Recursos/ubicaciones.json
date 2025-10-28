@@ -1,608 +1,220 @@
 {
   "paises": [
     {
-      "nombre": "MÉXICO",
+      "nombre": "México",
       "codigo": "MX",
       "estados": [
         {
           "nombre": "Aguascalientes",
-          "localidades": ["Aguascalientes", "Jesús María", "Calvillo", "Rincón de Romos", "San Francisco de los Romo", "Pabellón de Arteaga"]
+          "localidades": ["Aguascalientes", "Jesús María", "Calvillo", "Rincón de Romos"]
         },
         {
           "nombre": "Baja California",
-          "localidades": ["Tijuana", "Mexicali", "Ensenada", "Tecate", "Rosarito", "San Felipe", "San Quintín"]
+          "localidades": ["Tijuana", "Mexicali", "Ensenada", "Tecate", "Rosarito"]
         },
         {
           "nombre": "Baja California Sur",
-          "localidades": ["La Paz", "Los Cabos", "Cabo San Lucas", "San José del Cabo", "Todos Santos", "Loreto", "Mulegé"]
+          "localidades": ["La Paz", "Los Cabos", "Cabo San Lucas", "San José del Cabo"]
         },
         {
           "nombre": "Campeche",
-          "localidades": ["Campeche", "Ciudad del Carmen", "Champotón", "Escárcega", "Calkiní"]
+          "localidades": ["Campeche", "Ciudad del Carmen", "Champotón"]
         },
         {
           "nombre": "Chiapas",
-          "localidades": ["Tuxtla Gutiérrez", "San Cristóbal de las Casas", "Tapachula", "Comitán", "Palenque", "Chiapa de Corzo", "Ocosingo"]
+          "localidades": ["Tuxtla Gutiérrez", "San Cristóbal de las Casas", "Tapachula", "Comitán"]
         },
         {
           "nombre": "Chihuahua",
-          "localidades": ["Chihuahua", "Ciudad Juárez", "Cuauhtémoc", "Delicias", "Parral", "Nuevo Casas Grandes"]
+          "localidades": ["Chihuahua", "Ciudad Juárez", "Cuauhtémoc", "Delicias"]
         },
         {
           "nombre": "Ciudad de México",
-          "localidades": ["Benito Juárez", "Coyoacán", "Miguel Hidalgo", "Cuauhtémoc", "Tlalpan", "Iztapalapa", "Álvaro Obregón", "Gustavo A. Madero", "Xochimilco", "Azcapotzalco"]
+          "localidades": ["Benito Juárez", "Coyoacán", "Miguel Hidalgo", "Cuauhtémoc", "Tlalpan"]
         },
         {
           "nombre": "Coahuila",
-          "localidades": ["Saltillo", "Torreón", "Monclova", "Piedras Negras", "Acuña", "Sabinas", "Frontera"]
+          "localidades": ["Saltillo", "Torreón", "Monclova", "Piedras Negras"]
         },
         {
           "nombre": "Colima",
-          "localidades": ["Colima", "Manzanillo", "Tecomán", "Villa de Álvarez", "Armería"]
+          "localidades": ["Colima", "Manzanillo", "Tecomán", "Villa de Álvarez"]
         },
         {
           "nombre": "Durango",
-          "localidades": ["Durango", "Gómez Palacio", "Lerdo", "Santiago Papasquiaro", "Vicente Guerrero"]
+          "localidades": ["Durango", "Gómez Palacio", "Lerdo", "Santiago Papasquiaro"]
         },
         {
           "nombre": "Guanajuato",
-          "localidades": ["León", "Irapuato", "Celaya", "Guanajuato", "Salamanca", "Silao", "San Miguel de Allende", "Pénjamo"]
+          "localidades": ["León", "Irapuato", "Celaya", "Guanajuato", "Salamanca"]
         },
         {
           "nombre": "Guerrero",
-          "localidades": ["Acapulco", "Chilpancingo", "Zihuatanejo", "Taxco", "Iguala", "Ixtapa", "Petatlán"]
+          "localidades": ["Acapulco", "Chilpancingo", "Zihuatanejo", "Taxco", "Iguala"]
         },
         {
           "nombre": "Hidalgo",
-          "localidades": ["Pachuca", "Tulancingo", "Tizayuca", "Tula", "Tepeji del Río", "Ixmiquilpan", "Actopan"]
+          "localidades": ["Pachuca", "Tulancingo", "Tizayuca", "Tula"]
         },
         {
           "nombre": "Jalisco",
-          "localidades": ["Guadalajara", "Zapopan", "Tlaquepaque", "Puerto Vallarta", "Tonalá", "Tlajomulco", "Tepatitlán", "Lagos de Moreno"]
+          "localidades": ["Guadalajara", "Zapopan", "Tlaquepaque", "Puerto Vallarta", "Tonalá"]
         },
         {
           "nombre": "Estado de México",
-          "localidades": ["Toluca", "Ecatepec", "Naucalpan", "Nezahualcóyotl", "Tlalnepantla", "Chimalhuacán", "Atizapán", "Cuautitlán Izcalli"]
+          "localidades": ["Toluca", "Ecatepec", "Naucalpan", "Nezahualcóyotl", "Tlalnepantla"]
         },
         {
           "nombre": "Michoacán",
-          "localidades": ["Morelia", "Uruapan", "Zamora", "Lázaro Cárdenas", "Pátzcuaro", "Apatzingán", "Zitácuaro"]
+          "localidades": ["Morelia", "Uruapan", "Zamora", "Lázaro Cárdenas", "Pátzcuaro"]
         },
         {
           "nombre": "Morelos",
-          "localidades": ["Cuernavaca", "Jiutepec", "Cuautla", "Temixco", "Yautepec", "Emiliano Zapata"]
+          "localidades": ["Cuernavaca", "Jiutepec", "Cuautla", "Temixco"]
         },
         {
           "nombre": "Nayarit",
-          "localidades": ["Tepic", "Bahía de Banderas", "Xalisco", "Santiago Ixcuintla", "Tuxpan", "Compostela"]
+          "localidades": ["Tepic", "Bahía de Banderas", "Xalisco", "Santiago Ixcuintla"]
         },
         {
           "nombre": "Nuevo León",
-          "localidades": ["Monterrey", "San Pedro Garza García", "Guadalupe", "Apodaca", "San Nicolás de los Garza", "Escobedo", "Santa Catarina"]
+          "localidades": ["Monterrey", "San Pedro Garza García", "Guadalupe", "Apodaca", "San Nicolás"]
         },
         {
           "nombre": "Oaxaca",
-          "localidades": ["Oaxaca de Juárez", "Salina Cruz", "Juchitán", "Huatulco", "Tuxtepec", "Puerto Escondido"]
+          "localidades": ["Oaxaca de Juárez", "Salina Cruz", "Juchitán", "Huatulco"]
         },
         {
           "nombre": "Puebla",
-          "localidades": ["Puebla", "Tehuacán", "San Martín Texmelucan", "Atlixco", "Cholula", "Teziutlán"]
+          "localidades": ["Puebla", "Tehuacán", "San Martín Texmelucan", "Atlixco"]
         },
         {
           "nombre": "Querétaro",
-          "localidades": ["Querétaro", "San Juan del Río", "Corregidora", "El Marqués", "Tequisquiapan", "Pedro Escobedo"]
+          "localidades": ["Querétaro", "San Juan del Río", "Corregidora", "El Marqués"]
         },
         {
           "nombre": "Quintana Roo",
-          "localidades": ["Cancún", "Playa del Carmen", "Tulum", "Cozumel", "Chetumal", "Isla Mujeres", "Bacalar", "Puerto Morelos"]
+          "localidades": ["Cancún", "Playa del Carmen", "Tulum", "Cozumel", "Chetumal"]
         },
         {
           "nombre": "San Luis Potosí",
-          "localidades": ["San Luis Potosí", "Soledad de Graciano Sánchez", "Ciudad Valles", "Matehuala", "Rioverde"]
+          "localidades": ["San Luis Potosí", "Soledad de Graciano Sánchez", "Ciudad Valles"]
         },
         {
           "nombre": "Sinaloa",
-          "localidades": ["Culiacán", "Mazatlán", "Los Mochis", "Guasave", "Guamúchil", "Navolato"]
+          "localidades": ["Culiacán", "Mazatlán", "Los Mochis", "Guasave"]
         },
         {
           "nombre": "Sonora",
-          "localidades": ["Hermosillo", "Ciudad Obregón", "Nogales", "San Luis Río Colorado", "Navojoa", "Guaymas"]
+          "localidades": ["Hermosillo", "Ciudad Obregón", "Nogales", "San Luis Río Colorado"]
         },
         {
           "nombre": "Tabasco",
-          "localidades": ["Villahermosa", "Cárdenas", "Comalcalco", "Huimanguillo", "Macuspana", "Paraíso"]
+          "localidades": ["Villahermosa", "Cárdenas", "Comalcalco", "Huimanguillo"]
         },
         {
           "nombre": "Tamaulipas",
-          "localidades": ["Reynosa", "Matamoros", "Nuevo Laredo", "Tampico", "Ciudad Victoria", "Ciudad Madero", "Altamira"]
+          "localidades": ["Reynosa", "Matamoros", "Nuevo Laredo", "Tampico", "Ciudad Victoria"]
         },
         {
           "nombre": "Tlaxcala",
-          "localidades": ["Tlaxcala", "Apizaco", "Huamantla", "San Pablo del Monte", "Chiautempan"]
+          "localidades": ["Tlaxcala", "Apizaco", "Huamantla", "San Pablo del Monte"]
         },
         {
           "nombre": "Veracruz",
-          "localidades": ["Veracruz", "Xalapa", "Coatzacoalcos", "Poza Rica", "Córdoba", "Orizaba", "Minatitlán", "Boca del Río"]
+          "localidades": ["Veracruz", "Xalapa", "Coatzacoalcos", "Poza Rica", "Córdoba"]
         },
         {
           "nombre": "Yucatán",
-          "localidades": ["Mérida", "Valladolid", "Tizimín", "Progreso", "Motul", "Ticul", "Uman"]
+          "localidades": ["Mérida", "Valladolid", "Tizimín", "Progreso"]
         },
         {
           "nombre": "Zacatecas",
-          "localidades": ["Zacatecas", "Fresnillo", "Guadalupe", "Jerez", "Río Grande", "Sombrerete"]
+          "localidades": ["Zacatecas", "Fresnillo", "Guadalupe", "Jerez"]
         }
       ]
     },
     {
-      "nombre": "ESTADOS UNIDOS",
+      "nombre": "Estados Unidos",
       "codigo": "US",
       "estados": [
         {
           "nombre": "California",
-          "localidades": ["Los Angeles", "San Francisco", "San Diego", "Sacramento", "San Jose", "Fresno", "Oakland"]
+          "localidades": ["Los Angeles", "San Francisco", "San Diego", "Sacramento", "San Jose"]
         },
         {
           "nombre": "Texas",
-          "localidades": ["Houston", "San Antonio", "Dallas", "Austin", "Fort Worth", "El Paso", "Arlington"]
+          "localidades": ["Houston", "Dallas", "Austin", "San Antonio", "Fort Worth"]
         },
         {
           "nombre": "Florida",
-          "localidades": ["Miami", "Orlando", "Tampa", "Jacksonville", "Fort Lauderdale", "Tallahassee"]
+          "localidades": ["Miami", "Orlando", "Tampa", "Jacksonville", "Fort Lauderdale"]
         },
         {
           "nombre": "New York",
           "localidades": ["New York City", "Buffalo", "Rochester", "Albany", "Syracuse"]
-        },
-        {
-          "nombre": "Pennsylvania",
-          "localidades": ["Philadelphia", "Pittsburgh", "Allentown", "Erie", "Reading"]
-        },
-        {
-          "nombre": "Illinois",
-          "localidades": ["Chicago", "Aurora", "Rockford", "Joliet", "Naperville"]
-        },
-        {
-          "nombre": "Ohio",
-          "localidades": ["Columbus", "Cleveland", "Cincinnati", "Toledo", "Akron"]
-        },
-        {
-          "nombre": "Georgia",
-          "localidades": ["Atlanta", "Augusta", "Columbus", "Savannah", "Athens"]
-        },
-        {
-          "nombre": "North Carolina",
-          "localidades": ["Charlotte", "Raleigh", "Greensboro", "Durham", "Winston-Salem"]
-        },
-        {
-          "nombre": "Michigan",
-          "localidades": ["Detroit", "Grand Rapids", "Warren", "Sterling Heights", "Ann Arbor"]
         }
       ]
     },
     {
-      "nombre": "CANADÁ",
+      "nombre": "Canadá",
       "codigo": "CA",
       "estados": [
         {
           "nombre": "Ontario",
-          "localidades": ["Toronto", "Ottawa", "Mississauga", "Brampton", "Hamilton", "London"]
+          "localidades": ["Toronto", "Ottawa", "Mississauga", "Hamilton"]
         },
         {
           "nombre": "Quebec",
-          "localidades": ["Montreal", "Quebec City", "Laval", "Gatineau", "Longueuil"]
+          "localidades": ["Montreal", "Quebec City", "Laval", "Gatineau"]
         },
         {
           "nombre": "British Columbia",
-          "localidades": ["Vancouver", "Victoria", "Surrey", "Burnaby", "Richmond"]
-        },
-        {
-          "nombre": "Alberta",
-          "localidades": ["Calgary", "Edmonton", "Red Deer", "Lethbridge", "St. Albert"]
+          "localidades": ["Vancouver", "Victoria", "Surrey", "Burnaby"]
         }
       ]
     },
     {
-      "nombre": "AFGANISTÁN",
-      "codigo": "AF",
-      "estados": [],
-      "localidades": ["Kabul", "Kandahar", "Herat", "Mazar-i-Sharif", "Jalalabad", "Kunduz"]
+      "nombre": "España",
+      "codigo": "ES",
+      "estados": [
+        {
+          "nombre": "Comunidad de Madrid",
+          "localidades": ["Madrid", "Alcalá de Henares", "Móstoles", "Fuenlabrada"]
+        },
+        {
+          "nombre": "Cataluña",
+          "localidades": ["Barcelona", "L'Hospitalet", "Badalona", "Terrassa"]
+        },
+        {
+          "nombre": "Andalucía",
+          "localidades": ["Sevilla", "Málaga", "Córdoba", "Granada"]
+        }
+      ]
     },
     {
-      "nombre": "ALBANIA",
-      "codigo": "AL",
-      "estados": [],
-      "localidades": ["Tirana", "Durrës", "Vlorë", "Elbasan", "Shkodër", "Fier", "Korçë"]
-    },
-    {
-      "nombre": "ALEMANIA",
-      "codigo": "DE",
-      "estados": [],
-      "localidades": ["Berlín", "Hamburgo", "Múnich", "Colonia", "Frankfurt", "Stuttgart", "Düsseldorf", "Dortmund", "Essen", "Leipzig"]
-    },
-    {
-      "nombre": "ANDORRA",
-      "codigo": "AD",
-      "estados": [],
-      "localidades": ["Andorra la Vella", "Escaldes-Engordany", "Encamp", "La Massana", "Sant Julià de Lòria"]
-    },
-    {
-      "nombre": "ANGOLA",
-      "codigo": "AO",
-      "estados": [],
-      "localidades": ["Luanda", "Huambo", "Lobito", "Benguela", "Lubango", "Kuito", "Malanje"]
-    },
-    {
-      "nombre": "ANTIGUA Y BARBUDA",
-      "codigo": "AG",
-      "estados": [],
-      "localidades": ["Saint John's", "All Saints", "Liberta", "Potter's Village", "Bolans"]
-    },
-    {
-      "nombre": "ARABIA SAUDITA",
-      "codigo": "SA",
-      "estados": [],
-      "localidades": ["Riad", "Yeda", "La Meca", "Medina", "Dammam", "Taif", "Buraydah", "Tabuk", "Khobar"]
-    },
-    {
-      "nombre": "ARGELIA",
-      "codigo": "DZ",
-      "estados": [],
-      "localidades": ["Argel", "Orán", "Constantine", "Annaba", "Blida", "Batna", "Sétif", "Sidi Bel Abbès"]
-    },
-    {
-      "nombre": "ARGENTINA",
+      "nombre": "Argentina",
       "codigo": "AR",
       "estados": [],
-      "localidades": ["Buenos Aires", "Córdoba", "Rosario", "Mendoza", "San Miguel de Tucumán", "La Plata", "Mar del Plata", "Salta", "Santa Fe", "San Juan"]
+      "localidades": ["Buenos Aires", "Córdoba", "Rosario", "Mendoza", "La Plata", "Mar del Plata"]
     },
     {
-      "nombre": "ARMENIA",
-      "codigo": "AM",
-      "estados": [],
-      "localidades": ["Ereván", "Gyumri", "Vanadzor", "Vagharshapat", "Hrazdan", "Abovyan"]
-    },
-    {
-      "nombre": "AUSTRALIA",
-      "codigo": "AU",
-      "estados": [],
-      "localidades": ["Sídney", "Melbourne", "Brisbane", "Perth", "Adelaida", "Gold Coast", "Newcastle", "Canberra", "Sunshine Coast", "Wollongong"]
-    },
-    {
-      "nombre": "AUSTRIA",
-      "codigo": "AT",
-      "estados": [],
-      "localidades": ["Viena", "Graz", "Linz", "Salzburgo", "Innsbruck", "Klagenfurt", "Villach", "Wels"]
-    },
-    {
-      "nombre": "AZERBAIYÁN",
-      "codigo": "AZ",
-      "estados": [],
-      "localidades": ["Bakú", "Ganja", "Sumqayit", "Mingachevir", "Lankaran", "Shirvan"]
-    },
-    {
-      "nombre": "BAHAMAS",
-      "codigo": "BS",
-      "estados": [],
-      "localidades": ["Nasáu", "Lucaya", "Freeport", "West End", "Cooper's Town", "Marsh Harbour"]
-    },
-    {
-      "nombre": "BANGLADÉS",
-      "codigo": "BD",
-      "estados": [],
-      "localidades": ["Daca", "Chittagong", "Khulna", "Rajshahi", "Sylhet", "Comilla", "Rangpur", "Barisal"]
-    },
-    {
-      "nombre": "BARBADOS",
-      "codigo": "BB",
-      "estados": [],
-      "localidades": ["Bridgetown", "Speightstown", "Oistins", "Bathsheba", "Holetown"]
-    },
-    {
-      "nombre": "BARÉIN",
-      "codigo": "BH",
-      "estados": [],
-      "localidades": ["Manama", "Muharraq", "Riffa", "Hamad Town", "Isa Town"]
-    },
-    {
-      "nombre": "BÉLGICA",
-      "codigo": "BE",
-      "estados": [],
-      "localidades": ["Bruselas", "Amberes", "Gante", "Charleroi", "Lieja", "Brujas", "Namur", "Lovaina"]
-    },
-    {
-      "nombre": "BELICE",
-      "codigo": "BZ",
-      "estados": [],
-      "localidades": ["Ciudad de Belice", "San Ignacio", "Orange Walk", "Belmopan", "Dangriga", "Corozal"]
-    },
-    {
-      "nombre": "BENÍN",
-      "codigo": "BJ",
-      "estados": [],
-      "localidades": ["Cotonú", "Porto-Novo", "Parakou", "Djougou", "Bohicon", "Kandi"]
-    },
-    {
-      "nombre": "BIELORRUSIA",
-      "codigo": "BY",
-      "estados": [],
-      "localidades": ["Minsk", "Gomel", "Mogilev", "Vitebsk", "Grodno", "Brest"]
-    },
-    {
-      "nombre": "BIRMANIA",
-      "codigo": "MM",
-      "estados": [],
-      "localidades": ["Yangón", "Mandalay", "Naipyidó", "Mawlamyine", "Bago", "Pathein", "Monywa"]
-    },
-    {
-      "nombre": "BOLIVIA",
-      "codigo": "BO",
-      "estados": [],
-      "localidades": ["La Paz", "Santa Cruz de la Sierra", "Cochabamba", "Sucre", "Oruro", "Tarija", "Potosí", "Trinidad"]
-    },
-    {
-      "nombre": "BOSNIA Y HERZEGOVINA",
-      "codigo": "BA",
-      "estados": [],
-      "localidades": ["Sarajevo", "Banja Luka", "Tuzla", "Zenica", "Mostar", "Bijeljina"]
-    },
-    {
-      "nombre": "BOTSUANA",
-      "codigo": "BW",
-      "estados": [],
-      "localidades": ["Gaborone", "Francistown", "Molepolole", "Maun", "Selebi-Phikwe", "Serowe"]
-    },
-    {
-      "nombre": "BRASIL",
-      "codigo": "BR",
-      "estados": [],
-      "localidades": ["São Paulo", "Río de Janeiro", "Brasilia", "Salvador", "Fortaleza", "Belo Horizonte", "Manaus", "Curitiba", "Recife", "Porto Alegre", "Belém", "Goiânia"]
-    },
-    {
-      "nombre": "BRUNÉI",
-      "codigo": "BN",
-      "estados": [],
-      "localidades": ["Bandar Seri Begawan", "Kuala Belait", "Seria", "Tutong", "Bangar"]
-    },
-    {
-      "nombre": "BULGARIA",
-      "codigo": "BG",
-      "estados": [],
-      "localidades": ["Sofía", "Plovdiv", "Varna", "Burgas", "Ruse", "Stara Zagora", "Pleven"]
-    },
-    {
-      "nombre": "BURKINA FASO",
-      "codigo": "BF",
-      "estados": [],
-      "localidades": ["Uagadugú", "Bobo-Dioulasso", "Koudougou", "Ouahigouya", "Banfora", "Dedougou"]
-    },
-    {
-      "nombre": "BURUNDI",
-      "codigo": "BI",
-      "estados": [],
-      "localidades": ["Buyumbura", "Gitega", "Muyinga", "Ngozi", "Ruyigi", "Rutana"]
-    },
-    {
-      "nombre": "BUTÁN",
-      "codigo": "BT",
-      "estados": [],
-      "localidades": ["Timbu", "Phuentsholing", "Punakha", "Paro", "Gelephu", "Wangdue Phodrang"]
-    },
-    {
-      "nombre": "CABO VERDE",
-      "codigo": "CV",
-      "estados": [],
-      "localidades": ["Praia", "Mindelo", "Santa Maria", "Assomada", "Tarrafal", "Pedra Badejo"]
-    },
-    {
-      "nombre": "CAMBOYA",
-      "codigo": "KH",
-      "estados": [],
-      "localidades": ["Nom Pen", "Siem Reap", "Battambang", "Sihanoukville", "Poipet", "Kampong Cham"]
-    },
-    {
-      "nombre": "CAMERÚN",
-      "codigo": "CM",
-      "estados": [],
-      "localidades": ["Yaundé", "Duala", "Garoua", "Bamenda", "Maroua", "Bafoussam", "Ngaoundéré"]
-    },
-    {
-      "nombre": "CATAR",
-      "codigo": "QA",
-      "estados": [],
-      "localidades": ["Doha", "Al Rayyan", "Umm Salal", "Al Wakrah", "Al Khor", "Dukhan"]
-    },
-    {
-      "nombre": "CHAD",
-      "codigo": "TD",
-      "estados": [],
-      "localidades": ["Yamena", "Moundou", "Sarh", "Abéché", "Kélo", "Koumra"]
-    },
-    {
-      "nombre": "CHILE",
+      "nombre": "Chile",
       "codigo": "CL",
       "estados": [],
-      "localidades": ["Santiago", "Valparaíso", "Concepción", "La Serena", "Antofagasta", "Temuco", "Rancagua", "Talca", "Arica", "Puerto Montt", "Viña del Mar", "Iquique"]
+      "localidades": ["Santiago", "Valparaíso", "Concepción", "La Serena", "Antofagasta", "Viña del Mar"]
     },
     {
-      "nombre": "CHINA",
-      "codigo": "CN",
-      "estados": [],
-      "localidades": ["Pekín", "Shanghái", "Cantón", "Shenzhen", "Chengdú", "Chongqing", "Tianjín", "Wuhan", "Hangzhou", "Xi'an", "Nankín", "Suzhou"]
-    },
-    {
-      "nombre": "CHIPRE",
-      "codigo": "CY",
-      "estados": [],
-      "localidades": ["Nicosia", "Limassol", "Larnaca", "Famagusta", "Pafos", "Kyrenia"]
-    },
-    {
-      "nombre": "CIUDAD DEL VATICANO",
-      "codigo": "VA",
-      "estados": [],
-      "localidades": ["Ciudad del Vaticano"]
-    },
-    {
-      "nombre": "COLOMBIA",
+      "nombre": "Colombia",
       "codigo": "CO",
       "estados": [],
-      "localidades": ["Bogotá", "Medellín", "Cali", "Barranquilla", "Cartagena", "Cúcuta", "Bucaramanga", "Pereira", "Santa Marta", "Ibagué", "Manizales", "Villavicencio"]
+      "localidades": ["Bogotá", "Medellín", "Cali", "Barranquilla", "Cartagena", "Bucaramanga"]
     },
     {
-      "nombre": "COMORAS",
-      "codigo": "KM",
+      "nombre": "Perú",
+      "codigo": "PE",
       "estados": [],
-      "localidades": ["Moroni", "Mutsamudu", "Fomboni", "Domoni", "Tsimbeo"]
-    },
-    {
-      "nombre": "COREA DEL NORTE",
-      "codigo": "KP",
-      "estados": [],
-      "localidades": ["Pionyang", "Hamhung", "Chongjin", "Nampo", "Wonsan", "Sinuiju"]
-    },
-    {
-      "nombre": "COREA DEL SUR",
-      "codigo": "KR",
-      "estados": [],
-      "localidades": ["Seúl", "Busán", "Incheon", "Daegu", "Daejeon", "Gwangju", "Suwon", "Ulsan", "Goyang"]
-    },
-    {
-      "nombre": "COSTA DE MARFIL",
-      "codigo": "CI",
-      "estados": [],
-      "localidades": ["Abiyán", "Yamusukro", "Bouaké", "Daloa", "San-Pédro", "Korhogo"]
-    },
-    {
-      "nombre": "COSTA RICA",
-      "codigo": "CR",
-      "estados": [],
-      "localidades": ["San José", "Limón", "Alajuela", "Liberia", "Puntarenas", "Cartago", "Heredia", "San Isidro"]
-    },
-    {
-      "nombre": "CROACIA",
-      "codigo": "HR",
-      "estados": [],
-      "localidades": ["Zagreb", "Split", "Rijeka", "Osijek", "Zadar", "Pula", "Slavonski Brod"]
-    },
-    {
-      "nombre": "CUBA",
-      "codigo": "CU",
-      "estados": [],
-      "localidades": ["La Habana", "Santiago de Cuba", "Camagüey", "Holguín", "Santa Clara", "Guantánamo", "Bayamo", "Las Tunas", "Cienfuegos"]
-    },
-    {
-      "nombre": "DINAMARCA",
-      "codigo": "DK",
-      "estados": [],
-      "localidades": ["Copenhague", "Aarhus", "Odense", "Aalborg", "Esbjerg", "Randers", "Kolding"]
-    },
-    {
-      "nombre": "DOMINICA",
-      "codigo": "DM",
-      "estados": [],
-      "localidades": ["Roseau", "Portsmouth", "Marigot", "Berekua", "Mahaut"]
-    },
-    {
-      "nombre": "ECUADOR",
-      "codigo": "EC",
-      "estados": [],
-      "localidades": ["Quito", "Guayaquil", "Cuenca", "Santo Domingo", "Machala", "Manta", "Portoviejo", "Loja", "Ambato", "Riobamba"]
-    },
-    {
-      "nombre": "EGIPTO",
-      "codigo": "EG",
-      "estados": [],
-      "localidades": ["El Cairo", "Alejandría", "Guiza", "Shubra El-Kheima", "Port Said", "Suez", "Luxor", "Asuán"]
-    },
-    {
-      "nombre": "EL SALVADOR",
-      "codigo": "SV",
-      "estados": [],
-      "localidades": ["San Salvador", "Santa Ana", "San Miguel", "Soyapango", "Santa Tecla", "Mejicanos", "Apopa"]
-    },
-    {
-      "nombre": "EMIRATOS ÁRABES UNIDOS",
-      "codigo": "AE",
-      "estados": [],
-      "localidades": ["Dubái", "Abu Dabi", "Sharjah", "Al Ain", "Ajman", "Ras al-Khaimah", "Fujairah"]
-    },
-    {
-      "nombre": "ERITREA",
-      "codigo": "ER",
-      "estados": [],
-      "localidades": ["Asmara", "Keren", "Massawa", "Assab", "Mendefera", "Barentu"]
-    },
-    {
-      "nombre": "ESLOVAQUIA",
-      "codigo": "SK",
-      "estados": [],
-      "localidades": ["Bratislava", "Košice", "Prešov", "Nitra", "Žilina", "Banská Bystrica"]
-    },
-    {
-      "nombre": "ESLOVENIA",
-      "codigo": "SI",
-      "estados": [],
-      "localidades": ["Liubliana", "Maribor", "Celje", "Kranj", "Koper", "Velenje"]
-    },
-    {
-      "nombre": "ESPAÑA",
-      "codigo": "ES",
-      "estados": [],
-      "localidades": ["Madrid", "Barcelona", "Valencia", "Sevilla", "Zaragoza", "Málaga", "Murcia", "Palma", "Las Palmas", "Bilbao", "Alicante", "Córdoba"]
-    },
-    {
-      "nombre": "ESTONIA",
-      "codigo": "EE",
-      "estados": [],
-      "localidades": ["Tallin", "Tartu", "Narva", "Pärnu", "Kohtla-Järve", "Viljandi"]
-    },
-    {
-      "nombre": "ETIOPÍA",
-      "codigo": "ET",
-      "estados": [],
-      "localidades": ["Adís Abeba", "Dire Dawa", "Mekele", "Gondar", "Awasa", "Bahir Dar", "Jimma"]
-    },
-    {
-      "nombre": "FILIPINAS",
-      "codigo": "PH",
-      "estados": [],
-      "localidades": ["Manila", "Quezon City", "Davao", "Cebú", "Zamboanga", "Antipolo", "Pasig", "Taguig", "Cagayan de Oro"]
-    },
-    {
-      "nombre": "FINLANDIA",
-      "codigo": "FI",
-      "estados": [],
-      "localidades": ["Helsinki", "Espoo", "Tampere", "Vantaa", "Oulu", "Turku", "Jyväskylä", "Lahti"]
-    },
-    {
-      "nombre": "FIYI",
-      "codigo": "FJ",
-      "estados": [],
-      "localidades": ["Suva", "Nasinu", "Lautoka", "Nadi", "Labasa", "Ba"]
-    },
-    {
-      "nombre": "FRANCIA",
-      "codigo": "FR",
-      "estados": [],
-      "localidades": ["París", "Marsella", "Lyon", "Toulouse", "Niza", "Nantes", "Estrasburgo", "Montpellier", "Burdeos", "Lille", "Rennes", "Reims"]
-    },
-    {
-      "nombre": "GABÓN",
-      "codigo": "GA",
-      "estados": [],
-      "localidades": ["Libreville", "Port-Gentil", "Franceville", "Oyem", "Moanda", "Mouila"]
-    },
-    {
-      "nombre": "GAMBIA",
-      "codigo": "GM",
-      "estados": [],
-      "localidades": ["Banjul", "Serekunda", "Brikama", "Bakau", "Farafenni", "Lamin"]
-    },
-    {
-      "nombre": "GEORGIA",
-      "codigo": "GE",
-      "estados": [],
-      "localidades": ["Tiflis", "Batumi", "Kutaisi", "Rustavi", "Gori", "Zugdidi", "Poti"]
+      "localidades": ["Lima", "Arequipa", "Trujillo", "Chiclayo", "Cusco", "Piura"]
     }
   ]
 }
