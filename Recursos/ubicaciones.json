@@ -1,0 +1,48 @@
+{
+  "paises": [
+    {
+      "nombre": "México",
+      "codigo": "MX",
+      "estados": [
+        {
+          "nombre": "Quintana Roo",
+          "localidades": ["Cancún", "Playa del Carmen", "Tulum", "Cozumel", "Chetumal"]
+        },
+        {
+          "nombre": "Jalisco",
+          "localidades": ["Guadalajara", "Zapopan", "Tlaquepaque", "Puerto Vallarta"]
+        },
+        {
+          "nombre": "Ciudad de México",
+          "localidades": ["Benito Juárez", "Coyoacán", "Miguel Hidalgo", "Cuauhtémoc"]
+        }
+      ]
+    },
+    {
+      "nombre": "Estados Unidos",
+      "codigo": "US",
+      "estados": [
+        {
+          "nombre": "California",
+          "localidades": ["Los Angeles", "San Francisco", "San Diego", "Sacramento"]
+        },
+        {
+          "nombre": "Texas",
+          "localidades": ["Houston", "Dallas", "Austin", "San Antonio"]
+        }
+      ]
+    },
+    {
+      "nombre": "Singapur",
+      "codigo": "SG",
+      "estados": [],
+      "localidades": ["Central", "East", "North", "North-East", "West"]
+    },
+    {
+      "nombre": "Uruguay",
+      "codigo": "UY",
+      "estados": [],
+      "localidades": ["Montevideo", "Salto", "Paysandú", "Maldonado", "Colonia"]
+    }
+  ]
+}
