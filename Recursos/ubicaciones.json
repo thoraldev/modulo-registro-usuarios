@@ -1,3 +1,274 @@
+// --- LIBRERÍAS Y DEPENDENCIAS --- using System; using System.Collections.Generic; using System.Diagnostics; using System.Drawing; using System.Linq; using System.Net.Http; using System.Threading.Tasks; using System.Windows.Forms; using Newtonsoft.Json; namespace Formulario_de_practica
+
+pasted
+
+mi código funciona al 100%SOLO ANALIZALO
+
+He analizado tu código a detalle y aquí están mis observaciones:
+
+✅ Fortalezas del código
+Arquitectura asíncrona bien implementada
+Uso correcto de async/await para operaciones de red
+Carga paralela de datos con Task.WhenAll() - excelente optimización
+HttpClient estático y reutilizable (buena práctica)
+Manejo de errores robusto
+Try-catch en todas las operaciones de red
+Bloques finally para restaurar estados de UI
+Mensajes informativos al usuario
+Buenas prácticas de C#
+Uso de nameof() para evitar strings mágicos
+LINQ eficiente para filtrado de datos
+Separación clara de responsabilidades
+UX bien pensada
+Estados de carga ("Cargando...") mientras se obtienen datos
+Validación visual con colores (rojo para errores)
+Timer de error que auto-resetea después de 5 segundos
+Búsqueda en tiempo real de actividades económicas
+Integración con API externa
+Consumo limpio de la API de Sepomex
+Deserialización JSON correcta con atributos [JsonProperty]
+Flujo de selección de dirección mediante formulario secundario
+🎯 Detalles técnicos destacables
+Sincronización de eventos: Desuscribes y resuscribes eventos para evitar loops infinitos (líneas 185-189, 202)
+Gestión de memoria: Uso de using para el formulario de Direcciones
+Validación de edad: Cálculo correcto considerando si el cumpleaños ya pasó este año
+Generación de credenciales: Formato único con parte entera y decimal
+💡 Observaciones menores
+El contador claveContactoCounter nunca se resetea - podría crecer indefinidamente en sesiones largas
+El cronómetro inicia automáticamente al cargar el form (parece intencional para tracking de tiempo)
+La función textBox_Mpio_TextChanged sincroniza dos textboxes - asume que siempre quieres esto
+📊 Resumen
+Tu código es profesional y bien estructurado. Demuestra comprensión sólida de:
+
+Programación asíncrona
+Patrones de diseño UI
+Consumo de APIs REST
+Manejo de estado y eventos en WinForms
+El hecho de que funcione al 100% confirma que la implementación es correcta. ¡Buen trabajo! 👏
+
+private void button_ubgeo_Click(object sender, EventArgs e)
+{
+}
+me abra Ubicacion.cs
+
+Aquí tienes el código para el evento del botón que abre el formulario Ubicacion.cs:
+
+csharp
+private void button_ubgeo_Click(object sender, EventArgs e)
+{
+    using (Ubicacion formUbicacion = new Ubicacion())
+    {
+        if (formUbicacion.ShowDialog() == DialogResult.OK)
+        {
+            // Aquí puedes obtener datos del formulario si es necesario
+            // Por ejemplo, si Ubicacion tiene propiedades públicas para coordenadas:
+            // double latitud = formUbicacion.LatitudSeleccionada;
+            // double longitud = formUbicacion.LongitudSeleccionada;
+            // textBox_Coordenadas.Text = $"{latitud}, {longitud}";
+        }
+    }
+}
+🎯 Opciones según tu necesidad
+Opción 1: Solo abrir el formulario (sin recuperar datos)
+csharp
+private void button_ubgeo_Click(object sender, EventArgs e)
+{
+    using (Ubicacion formUbicacion = new Ubicacion())
+    {
+        formUbicacion.ShowDialog();
+    }
+}
+Opción 2: Pasar datos AL formulario de Ubicacion
+csharp
+private void button_ubgeo_Click(object sender, EventArgs e)
+{
+    using (Ubicacion formUbicacion = new Ubicacion())
+    {
+        // Pasar datos existentes (si los tienes)
+        formUbicacion.DireccionActual = textBox_LocalidadDireccion.Text;
+        
+        if (formUbicacion.ShowDialog() == DialogResult.OK)
+        {
+            // Procesar resultado
+        }
+    }
+}
+Opción 3: Recibir coordenadas del formulario
+csharp
+private void button_ubgeo_Click(object sender, EventArgs e)
+{
+    using (Ubicacion formUbicacion = new Ubicacion())
+    {
+        if (formUbicacion.ShowDialog() == DialogResult.OK)
+        {
+            // Asume que Ubicacion.cs tiene estas propiedades públicas:
+            textBox_Latitud.Text = formUbicacion.Latitud.ToString();
+            textBox_Longitud.Text = formUbicacion.Longitud.ToString();
+        }
+    }
+}
+¿Qué necesitas que haga el formulario Ubicacion.cs?
+
+¿Solo mostrar un mapa?
+¿Permitir seleccionar coordenadas?
+¿Mostrar la dirección ingresada en el mapa?
+Dependiendo de tu respuesta, puedo ajustar el código con más precisión. 🗺️
+
+
+solo quierro que lo abra en primer plano nada mas, y lo deje ahi hasta que yo lo cierre
+
+Perfecto, entonces usa este código simple:
+
+csharp
+private void button_ubgeo_Click(object sender, EventArgs e)
+{
+    Ubicacion formUbicacion = new Ubicacion();
+    formUbicacion.Show();
+}
+🔍 Diferencias clave:
+Show() en lugar de ShowDialog() - abre el formulario sin bloquear el formulario principal
+Sin using - el formulario se mantiene abierto hasta que el usuario lo cierre manualmente
+Sin validación de DialogResult - no necesitas procesar ningún resultado
+Así el formulario Ubicacion.cs se abrirá en primer plano y el usuario podrá interactuar tanto con él como con el formulario principal hasta que decida cerrarlo. 👍
+
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+namespace Formulario_de_practica
+{
+    public partial class Ubicacion : Form
+    {
+        public Ubicacion()
+        {
+            InitializeComponent();
+        }
+    }
+}
+
+mira en este tengo
+comboBox_pais
+comboBox_estado
+comboBox_localidad
+quiero hacer una lista tipo raw de github, que si por ejemplo pongo un pais me muestre los estados que tiene y despues las localidades, si no tiene estado solo las localidades, de todos los paises posibles, creo que se implementaria un .json en githuib
+
+tiene
+
+¡Excelente idea! Te voy a ayudar a implementar esto. Necesitas una estructura JSON jerárquica para países → estados → localidades.
+
+📁 Estructura JSON recomendada
+Crea un archivo ubicaciones.json en tu repositorio de GitHub:
+
+json
+{
+  "paises": [
+    {
+      "nombre": "México",
+      "codigo": "MX",
+      "estados": [
+        {
+          "nombre": "Quintana Roo",
+          "localidades": ["Cancún", "Playa del Carmen", "Tulum", "Cozumel", "Chetumal"]
+        },
+        {
+          "nombre": "Jalisco",
+          "localidades": ["Guadalajara", "Zapopan", "Tlaquepaque", "Puerto Vallarta"]
+        },
+        {
+          "nombre": "Ciudad de México",
+          "localidades": ["Benito Juárez", "Coyoacán", "Miguel Hidalgo", "Cuauhtémoc"]
+        }
+      ]
+    },
+    {
+      "nombre": "Estados Unidos",
+      "codigo": "US",
+      "estados": [
+        {
+          "nombre": "California",
+          "localidades": ["Los Angeles", "San Francisco", "San Diego", "Sacramento"]
+        },
+        {
+          "nombre": "Texas",
+          "localidades": ["Houston", "Dallas", "Austin", "San Antonio"]
+        }
+      ]
+    },
+    {
+      "nombre": "Singapur",
+      "codigo": "SG",
+      "estados": [],
+      "localidades": ["Central", "East", "North", "North-East", "West"]
+    },
+    {
+      "nombre": "Uruguay",
+      "codigo": "UY",
+      "estados": [],
+      "localidades": ["Montevideo", "Salto", "Paysandú", "Maldonado", "Colonia"]
+    }
+  ]
+}
+💻 Código completo para Ubicacion.cs
+Ubicacion.cs - Sistema de ubicaciones jerárquico
+Código 
+🎯 Configuración del formulario
+En el Designer de Ubicacion.cs, asegúrate de:
+
+Conectar el evento Load:
+Selecciona el Form
+En propiedades → Events → busca Load
+Asigna Ubicacion_Load
+Conectar eventos de ComboBoxes:
+comboBox_pais → SelectedIndexChanged → comboBox_pais_SelectedIndexChanged
+comboBox_estado → SelectedIndexChanged → comboBox_estado_SelectedIndexChanged
+📝 Pasos para implementar
+Crea el archivo JSON en tu GitHub:
+Ve a: https://github.com/thoraldev/modulo-registro-usuarios/tree/main/Recursos
+Crea nuevo archivo: ubicaciones.json
+Pega la estructura JSON de arriba
+Actualiza la URL en el código (línea 14):
+csharp
+   private const string UrlUbicaciones = "https://raw.githubusercontent.com/thoraldev/modulo-registro-usuarios/refs/heads/main/Recursos/ubicaciones.json";
+Compila y prueba ✅
+🌍 Funcionamiento
+México → Muestra estados → Luego localidades del estado
+Singapur → Salta estados → Muestra localidades directamente
+Estados Unidos → Muestra estados → Luego localidades del estado
+¿Necesitas que te genere un JSON más completo con más países? 🗺️
+
+
+Una variable local o un parámetro denominados 'e' no se pueden declarar en este ámbito porque ese nombre se está usando en un ámbito local envolvente para definir una variable local o un parámetro
+
+Una variable local o un parámetro denominados 'e' no se pueden declarar en este ámbito porque ese nombre se está usando en un ámbito local envolvente para definir una variable local o un parámetro
+
+El error ocurre porque hay conflicto con el nombre de variable e en las lambdas/LINQ. Aquí está el código corregido:
+
+Ubicacion.cs - Sistema de ubicaciones jerárquico
+Código ∙ Versión 2 
+✅ Problema resuelto
+
+Cambié los nombres de las variables en las expresiones lambda:
+
+e => e.Nombre → estado => estado.Nombre
+e => e.Nombre → est => est.Nombre
+El conflicto ocurría porque e ya se usaba como parámetro del evento (EventArgs e), y no se puede reutilizar en las lambdas dentro del mismo ámbito.
+
+Ahora debería compilar sin errores. 👍
+
+pues no sale nada aqui tengo https://raw.githubusercontent.com/thoraldev/modulo-registro-usuarios/refs/heads/main/Recursos/ubicaciones.json
+
+Veo el problema. Tu JSON está vacío o mal formateado. Aquí te doy el JSON completo y corregido:
+
+📄 JSON completo para ubicaciones.json
+Copia esto exactamente en tu archivo de GitHub:
+
+json
 {
   "paises": [
     {
@@ -215,6 +486,1152 @@
       "codigo": "PE",
       "estados": [],
       "localidades": ["Lima", "Arequipa", "Trujillo", "Chiclayo", "Cusco", "Piura"]
+    }
+  ]
+}
+🔧 Pasos para actualizar:
+Ve a tu GitHub: https://github.com/thoraldev/modulo-registro-usuarios/blob/main/Recursos/ubicaciones.json
+Haz clic en el ícono del lápiz (editar)
+Borra todo el contenido actual
+Pega el JSON de arriba
+Haz clic en Commit changes
+Espera 1-2 minutos para que GitHub actualice el raw
+✅ Verifica:
+Abre esta URL en tu navegador: https://raw.githubusercontent.com/thoraldev/modulo-registro-usuarios/refs/heads/main/Recursos/ubicaciones.json
+
+Deberías ver el JSON completo. Si aún sale vacío, espera unos minutos más (caché de GitHub).
+
+¿Ya lo actualizaste? 🚀
+
+
+y el codigo como deberia ser
+
+El código ya está completo en el artifact que creé. Aquí te doy el código final y completo para que lo copies directamente:
+
+💻 Código completo de Ubicacion.cs
+csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net.Http;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using Newtonsoft.Json;
+
+namespace Formulario_de_practica
+{
+    public partial class Ubicacion : Form
+    {
+        // URL del JSON en GitHub
+        private const string UrlUbicaciones = "https://raw.githubusercontent.com/thoraldev/modulo-registro-usuarios/refs/heads/main/Recursos/ubicaciones.json";
+        
+        private static readonly HttpClient httpClient = new HttpClient();
+        private UbicacionesData datosUbicaciones;
+
+        public Ubicacion()
+        {
+            InitializeComponent();
+        }
+
+        private async void Ubicacion_Load(object sender, EventArgs e)
+        {
+            // Deshabilitar controles mientras carga
+            comboBox_pais.Enabled = false;
+            comboBox_estado.Enabled = false;
+            comboBox_localidad.Enabled = false;
+
+            await CargarUbicacionesAsync();
+        }
+
+        private async Task CargarUbicacionesAsync()
+        {
+            comboBox_pais.Items.Add("Cargando...");
+            comboBox_pais.SelectedIndex = 0;
+
+            try
+            {
+                string contenidoJson = await httpClient.GetStringAsync(UrlUbicaciones);
+                datosUbicaciones = JsonConvert.DeserializeObject<UbicacionesData>(contenidoJson);
+
+                // Cargar países en el ComboBox
+                comboBox_pais.Items.Clear();
+                comboBox_pais.DataSource = datosUbicaciones.Paises.Select(p => p.Nombre).ToList();
+                comboBox_pais.SelectedIndex = -1;
+                comboBox_pais.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No se pudieron cargar las ubicaciones: " + ex.Message, 
+                    "Error de Red", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                comboBox_pais.Items.Clear();
+                comboBox_pais.Items.Add("Error al cargar");
+                comboBox_pais.SelectedIndex = 0;
+            }
+        }
+
+        private void comboBox_pais_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Limpiar ComboBoxes dependientes
+            comboBox_estado.DataSource = null;
+            comboBox_estado.Items.Clear();
+            comboBox_localidad.DataSource = null;
+            comboBox_localidad.Items.Clear();
+
+            if (comboBox_pais.SelectedIndex == -1 || datosUbicaciones == null)
+                return;
+
+            string paisSeleccionado = comboBox_pais.SelectedItem.ToString();
+            Pais pais = datosUbicaciones.Paises.FirstOrDefault(p => p.Nombre == paisSeleccionado);
+
+            if (pais == null) return;
+
+            // Caso 1: El país tiene estados
+            if (pais.Estados != null && pais.Estados.Any())
+            {
+                comboBox_estado.DataSource = pais.Estados.Select(estado => estado.Nombre).ToList();
+                comboBox_estado.SelectedIndex = -1;
+                comboBox_estado.Enabled = true;
+                comboBox_localidad.Enabled = false;
+            }
+            // Caso 2: El país NO tiene estados, solo localidades directas
+            else if (pais.Localidades != null && pais.Localidades.Any())
+            {
+                comboBox_estado.Enabled = false;
+                comboBox_localidad.DataSource = pais.Localidades;
+                comboBox_localidad.SelectedIndex = -1;
+                comboBox_localidad.Enabled = true;
+            }
+            else
+            {
+                comboBox_estado.Enabled = false;
+                comboBox_localidad.Enabled = false;
+            }
+        }
+
+        private void comboBox_estado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            comboBox_localidad.DataSource = null;
+            comboBox_localidad.Items.Clear();
+
+            if (comboBox_estado.SelectedIndex == -1 || datosUbicaciones == null)
+                return;
+
+            string paisSeleccionado = comboBox_pais.SelectedItem.ToString();
+            string estadoSeleccionado = comboBox_estado.SelectedItem.ToString();
+
+            Pais pais = datosUbicaciones.Paises.FirstOrDefault(p => p.Nombre == paisSeleccionado);
+            if (pais == null) return;
+
+            Estado estado = pais.Estados.FirstOrDefault(est => est.Nombre == estadoSeleccionado);
+            if (estado == null || estado.Localidades == null) return;
+
+            comboBox_localidad.DataSource = estado.Localidades;
+            comboBox_localidad.SelectedIndex = -1;
+            comboBox_localidad.Enabled = true;
+        }
+    }
+
+    // --- CLASES MODELO PARA LAS UBICACIONES ---
+    public class UbicacionesData
+    {
+        [JsonProperty("paises")]
+        public List<Pais> Paises { get; set; }
+    }
+
+    public class Pais
+    {
+        [JsonProperty("nombre")]
+        public string Nombre { get; set; }
+
+        [JsonProperty("codigo")]
+        public string Codigo { get; set; }
+
+        [JsonProperty("estados")]
+        public List<Estado> Estados { get; set; }
+
+        [JsonProperty("localidades")]
+        public List<string> Localidades { get; set; }
+    }
+
+    public class Estado
+    {
+        [JsonProperty("nombre")]
+        public string Nombre { get; set; }
+
+        [JsonProperty("localidades")]
+        public List<string> Localidades { get; set; }
+    }
+}
+⚙️ Configuración en el Designer
+Abre Ubicacion.cs en modo diseño
+Haz doble clic en el formulario (espacio vacío) → Esto crea automáticamente el evento Ubicacion_Load
+Selecciona comboBox_pais → Propiedades → Events (⚡) → Busca SelectedIndexChanged → Selecciona comboBox_pais_SelectedIndexChanged
+Selecciona comboBox_estado → Propiedades → Events (⚡) → Busca SelectedIndexChanged → Selecciona comboBox_estado_SelectedIndexChanged
+✅ Lista de verificación:
+ JSON actualizado en GitHub
+ URL correcta en línea 12 del código
+ Eventos conectados en el Designer
+ Compilar proyecto
+ Probar seleccionando México → Debería mostrar estados
+ Probar seleccionando Chile → Debería mostrar localidades directamente
+¿Ya lo probaste? ¿Funciona correctamente? 🎯
+
+
+no me cargan
+
+Vamos a diagnosticar el problema paso a paso:
+
+🔍 Debugging: Agrega este código temporal
+Reemplaza el método CargarUbicacionesAsync con esta versión que tiene más información de debug:
+
+csharp
+private async Task CargarUbicacionesAsync()
+{
+    comboBox_pais.Items.Add("Cargando...");
+    comboBox_pais.SelectedIndex = 0;
+
+    try
+    {
+        MessageBox.Show("Intentando cargar desde: " + UrlUbicaciones, "Debug");
+        
+        string contenidoJson = await httpClient.GetStringAsync(UrlUbicaciones);
+        
+        MessageBox.Show($"JSON recibido. Longitud: {contenidoJson.Length} caracteres", "Debug");
+        
+        datosUbicaciones = JsonConvert.DeserializeObject<UbicacionesData>(contenidoJson);
+        
+        if (datosUbicaciones == null)
+        {
+            MessageBox.Show("datosUbicaciones es NULL después de deserializar", "Debug Error");
+            return;
+        }
+        
+        if (datosUbicaciones.Paises == null)
+        {
+            MessageBox.Show("datosUbicaciones.Paises es NULL", "Debug Error");
+            return;
+        }
+        
+        MessageBox.Show($"Países cargados: {datosUbicaciones.Paises.Count}", "Debug");
+
+        // Cargar países en el ComboBox
+        comboBox_pais.Items.Clear();
+        comboBox_pais.DataSource = datosUbicaciones.Paises.Select(p => p.Nombre).ToList();
+        comboBox_pais.SelectedIndex = -1;
+        comboBox_pais.Enabled = true;
+        
+        MessageBox.Show("Carga completada exitosamente", "Debug");
+    }
+    catch (Exception ex)
+    {
+        MessageBox.Show($"ERROR COMPLETO:\n\nTipo: {ex.GetType().Name}\n\nMensaje: {ex.Message}\n\nStackTrace: {ex.StackTrace}", 
+            "Error Detallado", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        
+        comboBox_pais.Items.Clear();
+        comboBox_pais.Items.Add("Error al cargar");
+        comboBox_pais.SelectedIndex = 0;
+    }
+}
+🧪 Pruebas:
+Compila y ejecuta
+Abre el formulario Ubicacion
+Lee cada MessageBox que aparece
+Dime qué mensajes ves y en qué punto se detiene
+🔧 Verificaciones rápidas:
+1. Verifica que el evento Load esté conectado:
+csharp
+public Ubicacion()
+{
+    InitializeComponent();
+    this.Load += Ubicacion_Load;  // ← Agrega esta línea si no está
+}
+2. Verifica la URL manualmente:
+Abre esta URL en tu navegador: https://raw.githubusercontent.com/thoraldev/modulo-registro-usuarios/refs/heads/main/Recursos/ubicaciones.json
+
+¿Qué ves? ¿El JSON completo o una página en blanco?
+
+3. Verifica Newtonsoft.Json:
+Ve a Solución → Referencias
+¿Está Newtonsoft.Json?
+Si no está: clic derecho en el proyecto → Administrar paquetes NuGet → Busca Newtonsoft.Json → Instalar
+Ejecuta el código de debug y dime:
+
+¿Qué mensajes aparecen?
+¿Cuál es el último mensaje antes del error?
+¿Qué dice el mensaje de error completo?
+Con esa info te puedo ayudar exactamente. 🔍
+
+
+damelo completo
+
+Ubicacion.cs - Sistema de ubicaciones jerárquico
+Código ∙ Versión 4 
+Ahí está el código completo con debug integrado.
+
+📋 Pasos para implementar:
+Copia todo el código del artifact de arriba
+Reemplaza completamente el contenido de tu archivo Ubicacion.cs
+Compila el proyecto
+Ejecuta y abre el formulario Ubicacion
+Lee cada MessageBox que aparezca
+📸 Dime qué mensajes ves:
+Los mensajes aparecerán en este orden:
+
+"Debug - Paso 1" → Muestra la URL
+"Debug - Paso 2" → Muestra cuántos caracteres del JSON se recibieron
+"Debug - Paso 3" → Muestra cuántos países se cargaron
+"Debug - Completado" → Todo funcionó
+Si aparece un error, copia el mensaje completo y pégalo aquí.
+
+⚙️ Si NO aparece ningún MessageBox:
+Entonces el evento Load no se está ejecutando. Verifica:
+
+En el Designer, haz doble clic en el formulario (espacio vacío)
+Debería llevarte al método Ubicacion_Load
+¿Qué mensajes ves cuando ejecutas? 🔍
+
+ahora si me cargo todo excelente
+
+¡Excelente! 🎉 Ahora que ya funciona, vamos a quitar los MessageBox de debug para que quede limpio y profesional:
+
+Ubicacion.cs - Sistema de ubicaciones jerárquico
+Código ∙ Versión 5 
+✅ ¡Listo! Código limpio y profesional.
+
+🎯 Resumen de lo que tienes funcionando:
+✅ Carga países desde GitHub
+✅ México → Muestra 32 estados → Localidades por estado
+✅ Estados Unidos → Muestra estados → Localidades por estado
+✅ Argentina, Chile, Colombia, Perú → Localidades directas (sin estados)
+✅ Manejo de errores de red
+✅ Indicador visual "Cargando..."
+🚀 Si quieres agregar más países/localidades:
+Solo edita el archivo JSON en GitHub y se actualizará automáticamente. El código ya maneja ambos casos (con estados y sin estados).
+
+¿Necesitas algo más en este formulario? 🗺️
+
+todo excelente ahora dame un json con todos los paises y todas las localidades que puedas
+
+ubicaciones.json - Base de datos completa de países y localidades
+Código 
+por favor intenta con todos estos completo
+[
+    "",
+    "MÉXICO",
+    "ESTADOS UNIDOS",
+    "AFGANISTÁN",
+    "ALBANIA",
+    "ALEMANIA",
+    "ANDORRA",
+    "ANGOLA",
+    "ANTIGUA Y BARBUDA",
+    "ARABIA SAUDITA",
+    "ARGELIA",
+    "ARGENTINA",
+    "ARMENIA",
+    "AUSTRALIA",
+    "AUSTRIA",
+    "AZERBAIYÁN",
+    "BAHAMAS",
+    "BANGLADÉS",
+    "BARBADOS",
+    "BARÉIN",
+    "BÉLGICA",
+    "BELICE",
+    "BENÍN",
+    "BIELORRUSIA",
+    "BIRMANIA",
+    "BOLIVIA",
+    "BOSNIA Y HERZEGOVINA",
+    "BOTSUANA",
+    "BRASIL",
+    "BRUNÉI",
+    "BULGARIA",
+    "BURKINA FASO",
+    "BURUNDI",
+    "BUTÁN",
+    "CABO VERDE",
+    "CAMBOYA",
+    "CAMERÚN",
+    "CANADÁ",
+    "CATAR",
+    "CHAD",
+    "CHILE",
+    "CHINA",
+    "CHIPRE",
+    "CIUDAD DEL VATICANO",
+    "COLOMBIA",
+    "COMORAS",
+    "COREA DEL NORTE",
+    "COREA DEL SUR",
+    "COSTA DE MARFIL",
+    "COSTA RICA",
+    "CROACIA",
+    "CUBA",
+    "DINAMARCA",
+    "DOMINICA",
+    "ECUADOR",
+    "EGIPTO",
+    "EL SALVADOR",
+    "EMIRATOS ÁRABES UNIDOS",
+    "ERITREA",
+    "ESLOVAQUIA",
+    "ESLOVENIA",
+    "ESPAÑA",
+    "ESTONIA",
+    "ETIOPÍA",
+    "FILIPINAS",
+    "FINLANDIA",
+    "FIYI",
+    "FRANCIA",
+    "GABÓN",
+    "GAMBIA",
+    "GEORGIA",
+    "GHANA",
+    "GRANADA",
+    "GRECIA",
+    "GUATEMALA",
+    "GUINEA",
+    "GUINEA ECUATORIAL",
+    "GUINEA-BISÁU",
+    "GUYANA",
+    "HAITÍ",
+    "HONDURAS",
+    "HUNGRÍA",
+    "INDIA",
+    "INDONESIA",
+    "IRÁN",
+    "IRAQ",
+    "IRLANDA",
+    "ISLANDIA",
+    "ISLAS MARSHALL",
+    "ISLAS SALOMÓN",
+    "ISRAEL",
+    "ITALIA",
+    "JAMAICA",
+    "JAPÓN",
+    "JORDANIA",
+    "KAZAJISTÁN",
+    "KENIA",
+    "KIRGUISTÁN",
+    "KIRIBATI",
+    "KUWAIT",
+    "LAOS",
+    "LESOTO",
+    "LETONIA",
+    "LÍBANO",
+    "LIBERIA",
+    "LIBIA",
+    "LIECHTENSTEIN",
+    "LITUANIA",
+    "LUXEMBURGO",
+    "MADAGASCAR",
+    "MALASIA",
+    "MALAUI",
+    "MALDIVAS",
+    "MALÍ",
+    "MALTA",
+    "MARRUECOS",
+    "MAURICIO",
+    "MAURITANIA",
+    "MICRONESIA",
+    "MOLDAVIA",
+    "MÓNACO",
+    "MONGOLIA",
+    "MONTENEGRO",
+    "MOZAMBIQUE",
+    "NAMIBIA",
+    "NAURU",
+    "NEPAL",
+    "NICARAGUA",
+    "NÍGER",
+    "NIGERIA",
+    "NORUEGA",
+    "NUEVA ZELANDA",
+    "OMÁN",
+    "PAÍSES BAJOS",
+    "PAKISTÁN",
+    "PALAOS",
+    "PALESTINA",
+    "PANAMÁ",
+    "PAPÚA NUEVA GUINEA",
+    "PARAGUAY",
+    "PERÚ",
+    "POLONIA",
+    "PORTUGAL",
+    "REINO UNIDO",
+    "REPÚBLICA CENTROAFRICANA",
+    "REPÚBLICA CHECA",
+    "REPÚBLICA DE MACEDONIA",
+    "REPÚBLICA DEL CONGO",
+    "REPÚBLICA DEMOCRÁTICA DEL CONGO",
+    "REPÚBLICA DOMINICANA",
+    "REPÚBLICA SUDAFRICANA",
+    "RUANDA",
+    "RUMANÍA",
+    "RUSIA",
+    "SAMOA",
+    "SAN CRISTÓBAL Y NIEVES",
+    "SAN MARINO",
+    "SAN VICENTE Y LAS GRANADINAS",
+    "SANTA LUCÍA",
+    "SANTO TOMÉ Y PRÍNCIPE",
+    "SENEGAL",
+    "SERBIA",
+    "SEYCHELLES",
+    "SIERRA LEONA",
+    "SINGAPUR",
+    "SIRIA",
+    "SOMALIA",
+    "SRI LANKA",
+    "SUAZILANDIA",
+    "SUDÁN",
+    "SUDÁN DEL SUR",
+    "SUECIA",
+    "SUIZA",
+    "SURINAM",
+    "TAILANDIA",
+    "TANZANIA",
+    "TAYIKISTÁN",
+    "TIMOR ORIENTAL",
+    "TOGO",
+    "TONGA",
+    "TRINIDAD Y TOBAGO",
+    "TÚNEZ",
+    "TURKMENISTÁN",
+    "TURQUÍA",
+    "TUVALU",
+    "UCRANIA",
+    "UGANDA",
+    "URUGUAY",
+    "UZBEKISTÁN",
+    "VANUATU",
+    "VENEZUELA",
+    "VIETNAM",
+    "YEMEN",
+    "YIBUTI",
+    "ZAMBIA",
+    "ZIMBABUE"
+  ]
+
+ubicaciones.json - Base de datos completa de países y localidades
+Código ∙ Versión 2 
+continua nos quedamos en GEORGIA
+
+CONTINUA
+
+
+
+
+
+
+
+
+{
+  "paises": [
+    {
+      "nombre": "MÉXICO",
+      "codigo": "MX",
+      "estados": [
+        {
+          "nombre": "Aguascalientes",
+          "localidades": ["Aguascalientes", "Jesús María", "Calvillo", "Rincón de Romos", "San Francisco de los Romo", "Pabellón de Arteaga"]
+        },
+        {
+          "nombre": "Baja California",
+          "localidades": ["Tijuana", "Mexicali", "Ensenada", "Tecate", "Rosarito", "San Felipe", "San Quintín"]
+        },
+        {
+          "nombre": "Baja California Sur",
+          "localidades": ["La Paz", "Los Cabos", "Cabo San Lucas", "San José del Cabo", "Todos Santos", "Loreto", "Mulegé"]
+        },
+        {
+          "nombre": "Campeche",
+          "localidades": ["Campeche", "Ciudad del Carmen", "Champotón", "Escárcega", "Calkiní"]
+        },
+        {
+          "nombre": "Chiapas",
+          "localidades": ["Tuxtla Gutiérrez", "San Cristóbal de las Casas", "Tapachula", "Comitán", "Palenque", "Chiapa de Corzo", "Ocosingo"]
+        },
+        {
+          "nombre": "Chihuahua",
+          "localidades": ["Chihuahua", "Ciudad Juárez", "Cuauhtémoc", "Delicias", "Parral", "Nuevo Casas Grandes"]
+        },
+        {
+          "nombre": "Ciudad de México",
+          "localidades": ["Benito Juárez", "Coyoacán", "Miguel Hidalgo", "Cuauhtémoc", "Tlalpan", "Iztapalapa", "Álvaro Obregón", "Gustavo A. Madero", "Xochimilco", "Azcapotzalco"]
+        },
+        {
+          "nombre": "Coahuila",
+          "localidades": ["Saltillo", "Torreón", "Monclova", "Piedras Negras", "Acuña", "Sabinas", "Frontera"]
+        },
+        {
+          "nombre": "Colima",
+          "localidades": ["Colima", "Manzanillo", "Tecomán", "Villa de Álvarez", "Armería"]
+        },
+        {
+          "nombre": "Durango",
+          "localidades": ["Durango", "Gómez Palacio", "Lerdo", "Santiago Papasquiaro", "Vicente Guerrero"]
+        },
+        {
+          "nombre": "Guanajuato",
+          "localidades": ["León", "Irapuato", "Celaya", "Guanajuato", "Salamanca", "Silao", "San Miguel de Allende", "Pénjamo"]
+        },
+        {
+          "nombre": "Guerrero",
+          "localidades": ["Acapulco", "Chilpancingo", "Zihuatanejo", "Taxco", "Iguala", "Ixtapa", "Petatlán"]
+        },
+        {
+          "nombre": "Hidalgo",
+          "localidades": ["Pachuca", "Tulancingo", "Tizayuca", "Tula", "Tepeji del Río", "Ixmiquilpan", "Actopan"]
+        },
+        {
+          "nombre": "Jalisco",
+          "localidades": ["Guadalajara", "Zapopan", "Tlaquepaque", "Puerto Vallarta", "Tonalá", "Tlajomulco", "Tepatitlán", "Lagos de Moreno"]
+        },
+        {
+          "nombre": "Estado de México",
+          "localidades": ["Toluca", "Ecatepec", "Naucalpan", "Nezahualcóyotl", "Tlalnepantla", "Chimalhuacán", "Atizapán", "Cuautitlán Izcalli"]
+        },
+        {
+          "nombre": "Michoacán",
+          "localidades": ["Morelia", "Uruapan", "Zamora", "Lázaro Cárdenas", "Pátzcuaro", "Apatzingán", "Zitácuaro"]
+        },
+        {
+          "nombre": "Morelos",
+          "localidades": ["Cuernavaca", "Jiutepec", "Cuautla", "Temixco", "Yautepec", "Emiliano Zapata"]
+        },
+        {
+          "nombre": "Nayarit",
+          "localidades": ["Tepic", "Bahía de Banderas", "Xalisco", "Santiago Ixcuintla", "Tuxpan", "Compostela"]
+        },
+        {
+          "nombre": "Nuevo León",
+          "localidades": ["Monterrey", "San Pedro Garza García", "Guadalupe", "Apodaca", "San Nicolás de los Garza", "Escobedo", "Santa Catarina"]
+        },
+        {
+          "nombre": "Oaxaca",
+          "localidades": ["Oaxaca de Juárez", "Salina Cruz", "Juchitán", "Huatulco", "Tuxtepec", "Puerto Escondido"]
+        },
+        {
+          "nombre": "Puebla",
+          "localidades": ["Puebla", "Tehuacán", "San Martín Texmelucan", "Atlixco", "Cholula", "Teziutlán"]
+        },
+        {
+          "nombre": "Querétaro",
+          "localidades": ["Querétaro", "San Juan del Río", "Corregidora", "El Marqués", "Tequisquiapan", "Pedro Escobedo"]
+        },
+        {
+          "nombre": "Quintana Roo",
+          "localidades": ["Cancún", "Playa del Carmen", "Tulum", "Cozumel", "Chetumal", "Isla Mujeres", "Bacalar", "Puerto Morelos"]
+        },
+        {
+          "nombre": "San Luis Potosí",
+          "localidades": ["San Luis Potosí", "Soledad de Graciano Sánchez", "Ciudad Valles", "Matehuala", "Rioverde"]
+        },
+        {
+          "nombre": "Sinaloa",
+          "localidades": ["Culiacán", "Mazatlán", "Los Mochis", "Guasave", "Guamúchil", "Navolato"]
+        },
+        {
+          "nombre": "Sonora",
+          "localidades": ["Hermosillo", "Ciudad Obregón", "Nogales", "San Luis Río Colorado", "Navojoa", "Guaymas"]
+        },
+        {
+          "nombre": "Tabasco",
+          "localidades": ["Villahermosa", "Cárdenas", "Comalcalco", "Huimanguillo", "Macuspana", "Paraíso"]
+        },
+        {
+          "nombre": "Tamaulipas",
+          "localidades": ["Reynosa", "Matamoros", "Nuevo Laredo", "Tampico", "Ciudad Victoria", "Ciudad Madero", "Altamira"]
+        },
+        {
+          "nombre": "Tlaxcala",
+          "localidades": ["Tlaxcala", "Apizaco", "Huamantla", "San Pablo del Monte", "Chiautempan"]
+        },
+        {
+          "nombre": "Veracruz",
+          "localidades": ["Veracruz", "Xalapa", "Coatzacoalcos", "Poza Rica", "Córdoba", "Orizaba", "Minatitlán", "Boca del Río"]
+        },
+        {
+          "nombre": "Yucatán",
+          "localidades": ["Mérida", "Valladolid", "Tizimín", "Progreso", "Motul", "Ticul", "Uman"]
+        },
+        {
+          "nombre": "Zacatecas",
+          "localidades": ["Zacatecas", "Fresnillo", "Guadalupe", "Jerez", "Río Grande", "Sombrerete"]
+        }
+      ]
+    },
+    {
+      "nombre": "ESTADOS UNIDOS",
+      "codigo": "US",
+      "estados": [
+        {
+          "nombre": "California",
+          "localidades": ["Los Angeles", "San Francisco", "San Diego", "Sacramento", "San Jose", "Fresno", "Oakland"]
+        },
+        {
+          "nombre": "Texas",
+          "localidades": ["Houston", "San Antonio", "Dallas", "Austin", "Fort Worth", "El Paso", "Arlington"]
+        },
+        {
+          "nombre": "Florida",
+          "localidades": ["Miami", "Orlando", "Tampa", "Jacksonville", "Fort Lauderdale", "Tallahassee"]
+        },
+        {
+          "nombre": "New York",
+          "localidades": ["New York City", "Buffalo", "Rochester", "Albany", "Syracuse"]
+        },
+        {
+          "nombre": "Pennsylvania",
+          "localidades": ["Philadelphia", "Pittsburgh", "Allentown", "Erie", "Reading"]
+        },
+        {
+          "nombre": "Illinois",
+          "localidades": ["Chicago", "Aurora", "Rockford", "Joliet", "Naperville"]
+        },
+        {
+          "nombre": "Ohio",
+          "localidades": ["Columbus", "Cleveland", "Cincinnati", "Toledo", "Akron"]
+        },
+        {
+          "nombre": "Georgia",
+          "localidades": ["Atlanta", "Augusta", "Columbus", "Savannah", "Athens"]
+        },
+        {
+          "nombre": "North Carolina",
+          "localidades": ["Charlotte", "Raleigh", "Greensboro", "Durham", "Winston-Salem"]
+        },
+        {
+          "nombre": "Michigan",
+          "localidades": ["Detroit", "Grand Rapids", "Warren", "Sterling Heights", "Ann Arbor"]
+        }
+      ]
+    },
+    {
+      "nombre": "CANADÁ",
+      "codigo": "CA",
+      "estados": [
+        {
+          "nombre": "Ontario",
+          "localidades": ["Toronto", "Ottawa", "Mississauga", "Brampton", "Hamilton", "London"]
+        },
+        {
+          "nombre": "Quebec",
+          "localidades": ["Montreal", "Quebec City", "Laval", "Gatineau", "Longueuil"]
+        },
+        {
+          "nombre": "British Columbia",
+          "localidades": ["Vancouver", "Victoria", "Surrey", "Burnaby", "Richmond"]
+        },
+        {
+          "nombre": "Alberta",
+          "localidades": ["Calgary", "Edmonton", "Red Deer", "Lethbridge", "St. Albert"]
+        }
+      ]
+    },
+    {
+      "nombre": "AFGANISTÁN",
+      "codigo": "AF",
+      "estados": [],
+      "localidades": ["Kabul", "Kandahar", "Herat", "Mazar-i-Sharif", "Jalalabad", "Kunduz"]
+    },
+    {
+      "nombre": "ALBANIA",
+      "codigo": "AL",
+      "estados": [],
+      "localidades": ["Tirana", "Durrës", "Vlorë", "Elbasan", "Shkodër", "Fier", "Korçë"]
+    },
+    {
+      "nombre": "ALEMANIA",
+      "codigo": "DE",
+      "estados": [],
+      "localidades": ["Berlín", "Hamburgo", "Múnich", "Colonia", "Frankfurt", "Stuttgart", "Düsseldorf", "Dortmund", "Essen", "Leipzig"]
+    },
+    {
+      "nombre": "ANDORRA",
+      "codigo": "AD",
+      "estados": [],
+      "localidades": ["Andorra la Vella", "Escaldes-Engordany", "Encamp", "La Massana", "Sant Julià de Lòria"]
+    },
+    {
+      "nombre": "ANGOLA",
+      "codigo": "AO",
+      "estados": [],
+      "localidades": ["Luanda", "Huambo", "Lobito", "Benguela", "Lubango", "Kuito", "Malanje"]
+    },
+    {
+      "nombre": "ANTIGUA Y BARBUDA",
+      "codigo": "AG",
+      "estados": [],
+      "localidades": ["Saint John's", "All Saints", "Liberta", "Potter's Village", "Bolans"]
+    },
+    {
+      "nombre": "ARABIA SAUDITA",
+      "codigo": "SA",
+      "estados": [],
+      "localidades": ["Riad", "Yeda", "La Meca", "Medina", "Dammam", "Taif", "Buraydah", "Tabuk", "Khobar"]
+    },
+    {
+      "nombre": "ARGELIA",
+      "codigo": "DZ",
+      "estados": [],
+      "localidades": ["Argel", "Orán", "Constantine", "Annaba", "Blida", "Batna", "Sétif", "Sidi Bel Abbès"]
+    },
+    {
+      "nombre": "ARGENTINA",
+      "codigo": "AR",
+      "estados": [],
+      "localidades": ["Buenos Aires", "Córdoba", "Rosario", "Mendoza", "San Miguel de Tucumán", "La Plata", "Mar del Plata", "Salta", "Santa Fe", "San Juan"]
+    },
+    {
+      "nombre": "ARMENIA",
+      "codigo": "AM",
+      "estados": [],
+      "localidades": ["Ereván", "Gyumri", "Vanadzor", "Vagharshapat", "Hrazdan", "Abovyan"]
+    },
+    {
+      "nombre": "AUSTRALIA",
+      "codigo": "AU",
+      "estados": [],
+      "localidades": ["Sídney", "Melbourne", "Brisbane", "Perth", "Adelaida", "Gold Coast", "Newcastle", "Canberra", "Sunshine Coast", "Wollongong"]
+    },
+    {
+      "nombre": "AUSTRIA",
+      "codigo": "AT",
+      "estados": [],
+      "localidades": ["Viena", "Graz", "Linz", "Salzburgo", "Innsbruck", "Klagenfurt", "Villach", "Wels"]
+    },
+    {
+      "nombre": "AZERBAIYÁN",
+      "codigo": "AZ",
+      "estados": [],
+      "localidades": ["Bakú", "Ganja", "Sumqayit", "Mingachevir", "Lankaran", "Shirvan"]
+    },
+    {
+      "nombre": "BAHAMAS",
+      "codigo": "BS",
+      "estados": [],
+      "localidades": ["Nasáu", "Lucaya", "Freeport", "West End", "Cooper's Town", "Marsh Harbour"]
+    },
+    {
+      "nombre": "BANGLADÉS",
+      "codigo": "BD",
+      "estados": [],
+      "localidades": ["Daca", "Chittagong", "Khulna", "Rajshahi", "Sylhet", "Comilla", "Rangpur", "Barisal"]
+    },
+    {
+      "nombre": "BARBADOS",
+      "codigo": "BB",
+      "estados": [],
+      "localidades": ["Bridgetown", "Speightstown", "Oistins", "Bathsheba", "Holetown"]
+    },
+    {
+      "nombre": "BARÉIN",
+      "codigo": "BH",
+      "estados": [],
+      "localidades": ["Manama", "Muharraq", "Riffa", "Hamad Town", "Isa Town"]
+    },
+    {
+      "nombre": "BÉLGICA",
+      "codigo": "BE",
+      "estados": [],
+      "localidades": ["Bruselas", "Amberes", "Gante", "Charleroi", "Lieja", "Brujas", "Namur", "Lovaina"]
+    },
+    {
+      "nombre": "BELICE",
+      "codigo": "BZ",
+      "estados": [],
+      "localidades": ["Ciudad de Belice", "San Ignacio", "Orange Walk", "Belmopan", "Dangriga", "Corozal"]
+    },
+    {
+      "nombre": "BENÍN",
+      "codigo": "BJ",
+      "estados": [],
+      "localidades": ["Cotonú", "Porto-Novo", "Parakou", "Djougou", "Bohicon", "Kandi"]
+    },
+    {
+      "nombre": "BIELORRUSIA",
+      "codigo": "BY",
+      "estados": [],
+      "localidades": ["Minsk", "Gomel", "Mogilev", "Vitebsk", "Grodno", "Brest"]
+    },
+    {
+      "nombre": "BIRMANIA",
+      "codigo": "MM",
+      "estados": [],
+      "localidades": ["Yangón", "Mandalay", "Naipyidó", "Mawlamyine", "Bago", "Pathein", "Monywa"]
+    },
+    {
+      "nombre": "BOLIVIA",
+      "codigo": "BO",
+      "estados": [],
+      "localidades": ["La Paz", "Santa Cruz de la Sierra", "Cochabamba", "Sucre", "Oruro", "Tarija", "Potosí", "Trinidad"]
+    },
+    {
+      "nombre": "BOSNIA Y HERZEGOVINA",
+      "codigo": "BA",
+      "estados": [],
+      "localidades": ["Sarajevo", "Banja Luka", "Tuzla", "Zenica", "Mostar", "Bijeljina"]
+    },
+    {
+      "nombre": "BOTSUANA",
+      "codigo": "BW",
+      "estados": [],
+      "localidades": ["Gaborone", "Francistown", "Molepolole", "Maun", "Selebi-Phikwe", "Serowe"]
+    },
+    {
+      "nombre": "BRASIL",
+      "codigo": "BR",
+      "estados": [],
+      "localidades": ["São Paulo", "Río de Janeiro", "Brasilia", "Salvador", "Fortaleza", "Belo Horizonte", "Manaus", "Curitiba", "Recife", "Porto Alegre", "Belém", "Goiânia"]
+    },
+    {
+      "nombre": "BRUNÉI",
+      "codigo": "BN",
+      "estados": [],
+      "localidades": ["Bandar Seri Begawan", "Kuala Belait", "Seria", "Tutong", "Bangar"]
+    },
+    {
+      "nombre": "BULGARIA",
+      "codigo": "BG",
+      "estados": [],
+      "localidades": ["Sofía", "Plovdiv", "Varna", "Burgas", "Ruse", "Stara Zagora", "Pleven"]
+    },
+    {
+      "nombre": "BURKINA FASO",
+      "codigo": "BF",
+      "estados": [],
+      "localidades": ["Uagadugú", "Bobo-Dioulasso", "Koudougou", "Ouahigouya", "Banfora", "Dedougou"]
+    },
+    {
+      "nombre": "BURUNDI",
+      "codigo": "BI",
+      "estados": [],
+      "localidades": ["Buyumbura", "Gitega", "Muyinga", "Ngozi", "Ruyigi", "Rutana"]
+    },
+    {
+      "nombre": "BUTÁN",
+      "codigo": "BT",
+      "estados": [],
+      "localidades": ["Timbu", "Phuentsholing", "Punakha", "Paro", "Gelephu", "Wangdue Phodrang"]
+    },
+    {
+      "nombre": "CABO VERDE",
+      "codigo": "CV",
+      "estados": [],
+      "localidades": ["Praia", "Mindelo", "Santa Maria", "Assomada", "Tarrafal", "Pedra Badejo"]
+    },
+    {
+      "nombre": "CAMBOYA",
+      "codigo": "KH",
+      "estados": [],
+      "localidades": ["Nom Pen", "Siem Reap", "Battambang", "Sihanoukville", "Poipet", "Kampong Cham"]
+    },
+    {
+      "nombre": "CAMERÚN",
+      "codigo": "CM",
+      "estados": [],
+      "localidades": ["Yaundé", "Duala", "Garoua", "Bamenda", "Maroua", "Bafoussam", "Ngaoundéré"]
+    },
+    {
+      "nombre": "CATAR",
+      "codigo": "QA",
+      "estados": [],
+      "localidades": ["Doha", "Al Rayyan", "Umm Salal", "Al Wakrah", "Al Khor", "Dukhan"]
+    },
+    {
+      "nombre": "CHAD",
+      "codigo": "TD",
+      "estados": [],
+      "localidades": ["Yamena", "Moundou", "Sarh", "Abéché", "Kélo", "Koumra"]
+    },
+    {
+      "nombre": "CHILE",
+      "codigo": "CL",
+      "estados": [],
+      "localidades": ["Santiago", "Valparaíso", "Concepción", "La Serena", "Antofagasta", "Temuco", "Rancagua", "Talca", "Arica", "Puerto Montt", "Viña del Mar", "Iquique"]
+    },
+    {
+      "nombre": "CHINA",
+      "codigo": "CN",
+      "estados": [],
+      "localidades": ["Pekín", "Shanghái", "Cantón", "Shenzhen", "Chengdú", "Chongqing", "Tianjín", "Wuhan", "Hangzhou", "Xi'an", "Nankín", "Suzhou"]
+    },
+    {
+      "nombre": "CHIPRE",
+      "codigo": "CY",
+      "estados": [],
+      "localidades": ["Nicosia", "Limassol", "Larnaca", "Famagusta", "Pafos", "Kyrenia"]
+    },
+    {
+      "nombre": "CIUDAD DEL VATICANO",
+      "codigo": "VA",
+      "estados": [],
+      "localidades": ["Ciudad del Vaticano"]
+    },
+    {
+      "nombre": "COLOMBIA",
+      "codigo": "CO",
+      "estados": [],
+      "localidades": ["Bogotá", "Medellín", "Cali", "Barranquilla", "Cartagena", "Cúcuta", "Bucaramanga", "Pereira", "Santa Marta", "Ibagué", "Manizales", "Villavicencio"]
+    },
+    {
+      "nombre": "COMORAS",
+      "codigo": "KM",
+      "estados": [],
+      "localidades": ["Moroni", "Mutsamudu", "Fomboni", "Domoni", "Tsimbeo"]
+    },
+    {
+      "nombre": "COREA DEL NORTE",
+      "codigo": "KP",
+      "estados": [],
+      "localidades": ["Pionyang", "Hamhung", "Chongjin", "Nampo", "Wonsan", "Sinuiju"]
+    },
+    {
+      "nombre": "COREA DEL SUR",
+      "codigo": "KR",
+      "estados": [],
+      "localidades": ["Seúl", "Busán", "Incheon", "Daegu", "Daejeon", "Gwangju", "Suwon", "Ulsan", "Goyang"]
+    },
+    {
+      "nombre": "COSTA DE MARFIL",
+      "codigo": "CI",
+      "estados": [],
+      "localidades": ["Abiyán", "Yamusukro", "Bouaké", "Daloa", "San-Pédro", "Korhogo"]
+    },
+    {
+      "nombre": "COSTA RICA",
+      "codigo": "CR",
+      "estados": [],
+      "localidades": ["San José", "Limón", "Alajuela", "Liberia", "Puntarenas", "Cartago", "Heredia", "San Isidro"]
+    },
+    {
+      "nombre": "CROACIA",
+      "codigo": "HR",
+      "estados": [],
+      "localidades": ["Zagreb", "Split", "Rijeka", "Osijek", "Zadar", "Pula", "Slavonski Brod"]
+    },
+    {
+      "nombre": "CUBA",
+      "codigo": "CU",
+      "estados": [],
+      "localidades": ["La Habana", "Santiago de Cuba", "Camagüey", "Holguín", "Santa Clara", "Guantánamo", "Bayamo", "Las Tunas", "Cienfuegos"]
+    },
+    {
+      "nombre": "DINAMARCA",
+      "codigo": "DK",
+      "estados": [],
+      "localidades": ["Copenhague", "Aarhus", "Odense", "Aalborg", "Esbjerg", "Randers", "Kolding"]
+    },
+    {
+      "nombre": "DOMINICA",
+      "codigo": "DM",
+      "estados": [],
+      "localidades": ["Roseau", "Portsmouth", "Marigot", "Berekua", "Mahaut"]
+    },
+    {
+      "nombre": "ECUADOR",
+      "codigo": "EC",
+      "estados": [],
+      "localidades": ["Quito", "Guayaquil", "Cuenca", "Santo Domingo", "Machala", "Manta", "Portoviejo", "Loja", "Ambato", "Riobamba"]
+    },
+    {
+      "nombre": "EGIPTO",
+      "codigo": "EG",
+      "estados": [],
+      "localidades": ["El Cairo", "Alejandría", "Guiza", "Shubra El-Kheima", "Port Said", "Suez", "Luxor", "Asuán"]
+    },
+    {
+      "nombre": "EL SALVADOR",
+      "codigo": "SV",
+      "estados": [],
+      "localidades": ["San Salvador", "Santa Ana", "San Miguel", "Soyapango", "Santa Tecla", "Mejicanos", "Apopa"]
+    },
+    {
+      "nombre": "EMIRATOS ÁRABES UNIDOS",
+      "codigo": "AE",
+      "estados": [],
+      "localidades": ["Dubái", "Abu Dabi", "Sharjah", "Al Ain", "Ajman", "Ras al-Khaimah", "Fujairah"]
+    },
+    {
+      "nombre": "ERITREA",
+      "codigo": "ER",
+      "estados": [],
+      "localidades": ["Asmara", "Keren", "Massawa", "Assab", "Mendefera", "Barentu"]
+    },
+    {
+      "nombre": "ESLOVAQUIA",
+      "codigo": "SK",
+      "estados": [],
+      "localidades": ["Bratislava", "Košice", "Prešov", "Nitra", "Žilina", "Banská Bystrica"]
+    },
+    {
+      "nombre": "ESLOVENIA",
+      "codigo": "SI",
+      "estados": [],
+      "localidades": ["Liubliana", "Maribor", "Celje", "Kranj", "Koper", "Velenje"]
+    },
+    {
+      "nombre": "ESPAÑA",
+      "codigo": "ES",
+      "estados": [],
+      "localidades": ["Madrid", "Barcelona", "Valencia", "Sevilla", "Zaragoza", "Málaga", "Murcia", "Palma", "Las Palmas", "Bilbao", "Alicante", "Córdoba"]
+    },
+    {
+      "nombre": "ESTONIA",
+      "codigo": "EE",
+      "estados": [],
+      "localidades": ["Tallin", "Tartu", "Narva", "Pärnu", "Kohtla-Järve", "Viljandi"]
+    },
+    {
+      "nombre": "ETIOPÍA",
+      "codigo": "ET",
+      "estados": [],
+      "localidades": ["Adís Abeba", "Dire Dawa", "Mekele", "Gondar", "Awasa", "Bahir Dar", "Jimma"]
+    },
+    {
+      "nombre": "FILIPINAS",
+      "codigo": "PH",
+      "estados": [],
+      "localidades": ["Manila", "Quezon City", "Davao", "Cebú", "Zamboanga", "Antipolo", "Pasig", "Taguig", "Cagayan de Oro"]
+    },
+    {
+      "nombre": "FINLANDIA",
+      "codigo": "FI",
+      "estados": [],
+      "localidades": ["Helsinki", "Espoo", "Tampere", "Vantaa", "Oulu", "Turku", "Jyväskylä", "Lahti"]
+    },
+    {
+      "nombre": "FIYI",
+      "codigo": "FJ",
+      "estados": [],
+      "localidades": ["Suva", "Nasinu", "Lautoka", "Nadi", "Labasa", "Ba"]
+    },
+    {
+      "nombre": "FRANCIA",
+      "codigo": "FR",
+      "estados": [],
+      "localidades": ["París", "Marsella", "Lyon", "Toulouse", "Niza", "Nantes", "Estrasburgo", "Montpellier", "Burdeos", "Lille", "Rennes", "Reims"]
+    },
+    {
+      "nombre": "GABÓN",
+      "codigo": "GA",
+      "estados": [],
+      "localidades": ["Libreville", "Port-Gentil", "Franceville", "Oyem", "Moanda", "Mouila"]
+    },
+    {
+      "nombre": "GAMBIA",
+      "codigo": "GM",
+      "estados": [],
+      "localidades": ["Banjul", "Serekunda", "Brikama", "Bakau", "Farafenni", "Lamin"]
+    },
+    {
+      "nombre": "GEORGIA",
+      "codigo": "GE",
+      "estados": [],
+      "localidades": ["Tiflis", "Batumi", "Kutaisi", "Rustavi", "Gori", "Zugdidi", "Poti"]
     }
   ]
 }
