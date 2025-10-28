@@ -5,16 +5,132 @@
       "codigo": "MX",
       "estados": [
         {
+          "nombre": "Aguascalientes",
+          "localidades": ["Aguascalientes", "Jesús María", "Calvillo", "Rincón de Romos"]
+        },
+        {
+          "nombre": "Baja California",
+          "localidades": ["Tijuana", "Mexicali", "Ensenada", "Tecate", "Rosarito"]
+        },
+        {
+          "nombre": "Baja California Sur",
+          "localidades": ["La Paz", "Los Cabos", "Cabo San Lucas", "San José del Cabo"]
+        },
+        {
+          "nombre": "Campeche",
+          "localidades": ["Campeche", "Ciudad del Carmen", "Champotón"]
+        },
+        {
+          "nombre": "Chiapas",
+          "localidades": ["Tuxtla Gutiérrez", "San Cristóbal de las Casas", "Tapachula", "Comitán"]
+        },
+        {
+          "nombre": "Chihuahua",
+          "localidades": ["Chihuahua", "Ciudad Juárez", "Cuauhtémoc", "Delicias"]
+        },
+        {
+          "nombre": "Ciudad de México",
+          "localidades": ["Benito Juárez", "Coyoacán", "Miguel Hidalgo", "Cuauhtémoc", "Tlalpan"]
+        },
+        {
+          "nombre": "Coahuila",
+          "localidades": ["Saltillo", "Torreón", "Monclova", "Piedras Negras"]
+        },
+        {
+          "nombre": "Colima",
+          "localidades": ["Colima", "Manzanillo", "Tecomán", "Villa de Álvarez"]
+        },
+        {
+          "nombre": "Durango",
+          "localidades": ["Durango", "Gómez Palacio", "Lerdo", "Santiago Papasquiaro"]
+        },
+        {
+          "nombre": "Guanajuato",
+          "localidades": ["León", "Irapuato", "Celaya", "Guanajuato", "Salamanca"]
+        },
+        {
+          "nombre": "Guerrero",
+          "localidades": ["Acapulco", "Chilpancingo", "Zihuatanejo", "Taxco", "Iguala"]
+        },
+        {
+          "nombre": "Hidalgo",
+          "localidades": ["Pachuca", "Tulancingo", "Tizayuca", "Tula"]
+        },
+        {
+          "nombre": "Jalisco",
+          "localidades": ["Guadalajara", "Zapopan", "Tlaquepaque", "Puerto Vallarta", "Tonalá"]
+        },
+        {
+          "nombre": "Estado de México",
+          "localidades": ["Toluca", "Ecatepec", "Naucalpan", "Nezahualcóyotl", "Tlalnepantla"]
+        },
+        {
+          "nombre": "Michoacán",
+          "localidades": ["Morelia", "Uruapan", "Zamora", "Lázaro Cárdenas", "Pátzcuaro"]
+        },
+        {
+          "nombre": "Morelos",
+          "localidades": ["Cuernavaca", "Jiutepec", "Cuautla", "Temixco"]
+        },
+        {
+          "nombre": "Nayarit",
+          "localidades": ["Tepic", "Bahía de Banderas", "Xalisco", "Santiago Ixcuintla"]
+        },
+        {
+          "nombre": "Nuevo León",
+          "localidades": ["Monterrey", "San Pedro Garza García", "Guadalupe", "Apodaca", "San Nicolás"]
+        },
+        {
+          "nombre": "Oaxaca",
+          "localidades": ["Oaxaca de Juárez", "Salina Cruz", "Juchitán", "Huatulco"]
+        },
+        {
+          "nombre": "Puebla",
+          "localidades": ["Puebla", "Tehuacán", "San Martín Texmelucan", "Atlixco"]
+        },
+        {
+          "nombre": "Querétaro",
+          "localidades": ["Querétaro", "San Juan del Río", "Corregidora", "El Marqués"]
+        },
+        {
           "nombre": "Quintana Roo",
           "localidades": ["Cancún", "Playa del Carmen", "Tulum", "Cozumel", "Chetumal"]
         },
         {
-          "nombre": "Jalisco",
-          "localidades": ["Guadalajara", "Zapopan", "Tlaquepaque", "Puerto Vallarta"]
+          "nombre": "San Luis Potosí",
+          "localidades": ["San Luis Potosí", "Soledad de Graciano Sánchez", "Ciudad Valles"]
         },
         {
-          "nombre": "Ciudad de México",
-          "localidades": ["Benito Juárez", "Coyoacán", "Miguel Hidalgo", "Cuauhtémoc"]
+          "nombre": "Sinaloa",
+          "localidades": ["Culiacán", "Mazatlán", "Los Mochis", "Guasave"]
+        },
+        {
+          "nombre": "Sonora",
+          "localidades": ["Hermosillo", "Ciudad Obregón", "Nogales", "San Luis Río Colorado"]
+        },
+        {
+          "nombre": "Tabasco",
+          "localidades": ["Villahermosa", "Cárdenas", "Comalcalco", "Huimanguillo"]
+        },
+        {
+          "nombre": "Tamaulipas",
+          "localidades": ["Reynosa", "Matamoros", "Nuevo Laredo", "Tampico", "Ciudad Victoria"]
+        },
+        {
+          "nombre": "Tlaxcala",
+          "localidades": ["Tlaxcala", "Apizaco", "Huamantla", "San Pablo del Monte"]
+        },
+        {
+          "nombre": "Veracruz",
+          "localidades": ["Veracruz", "Xalapa", "Coatzacoalcos", "Poza Rica", "Córdoba"]
+        },
+        {
+          "nombre": "Yucatán",
+          "localidades": ["Mérida", "Valladolid", "Tizimín", "Progreso"]
+        },
+        {
+          "nombre": "Zacatecas",
+          "localidades": ["Zacatecas", "Fresnillo", "Guadalupe", "Jerez"]
         }
       ]
     },
@@ -24,25 +140,81 @@
       "estados": [
         {
           "nombre": "California",
-          "localidades": ["Los Angeles", "San Francisco", "San Diego", "Sacramento"]
+          "localidades": ["Los Angeles", "San Francisco", "San Diego", "Sacramento", "San Jose"]
         },
         {
           "nombre": "Texas",
-          "localidades": ["Houston", "Dallas", "Austin", "San Antonio"]
+          "localidades": ["Houston", "Dallas", "Austin", "San Antonio", "Fort Worth"]
+        },
+        {
+          "nombre": "Florida",
+          "localidades": ["Miami", "Orlando", "Tampa", "Jacksonville", "Fort Lauderdale"]
+        },
+        {
+          "nombre": "New York",
+          "localidades": ["New York City", "Buffalo", "Rochester", "Albany", "Syracuse"]
         }
       ]
     },
     {
-      "nombre": "Singapur",
-      "codigo": "SG",
-      "estados": [],
-      "localidades": ["Central", "East", "North", "North-East", "West"]
+      "nombre": "Canadá",
+      "codigo": "CA",
+      "estados": [
+        {
+          "nombre": "Ontario",
+          "localidades": ["Toronto", "Ottawa", "Mississauga", "Hamilton"]
+        },
+        {
+          "nombre": "Quebec",
+          "localidades": ["Montreal", "Quebec City", "Laval", "Gatineau"]
+        },
+        {
+          "nombre": "British Columbia",
+          "localidades": ["Vancouver", "Victoria", "Surrey", "Burnaby"]
+        }
+      ]
     },
     {
-      "nombre": "Uruguay",
-      "codigo": "UY",
+      "nombre": "España",
+      "codigo": "ES",
+      "estados": [
+        {
+          "nombre": "Comunidad de Madrid",
+          "localidades": ["Madrid", "Alcalá de Henares", "Móstoles", "Fuenlabrada"]
+        },
+        {
+          "nombre": "Cataluña",
+          "localidades": ["Barcelona", "L'Hospitalet", "Badalona", "Terrassa"]
+        },
+        {
+          "nombre": "Andalucía",
+          "localidades": ["Sevilla", "Málaga", "Córdoba", "Granada"]
+        }
+      ]
+    },
+    {
+      "nombre": "Argentina",
+      "codigo": "AR",
       "estados": [],
-      "localidades": ["Montevideo", "Salto", "Paysandú", "Maldonado", "Colonia"]
+      "localidades": ["Buenos Aires", "Córdoba", "Rosario", "Mendoza", "La Plata", "Mar del Plata"]
+    },
+    {
+      "nombre": "Chile",
+      "codigo": "CL",
+      "estados": [],
+      "localidades": ["Santiago", "Valparaíso", "Concepción", "La Serena", "Antofagasta", "Viña del Mar"]
+    },
+    {
+      "nombre": "Colombia",
+      "codigo": "CO",
+      "estados": [],
+      "localidades": ["Bogotá", "Medellín", "Cali", "Barranquilla", "Cartagena", "Bucaramanga"]
+    },
+    {
+      "nombre": "Perú",
+      "codigo": "PE",
+      "estados": [],
+      "localidades": ["Lima", "Arequipa", "Trujillo", "Chiclayo", "Cusco", "Piura"]
     }
   ]
 }
