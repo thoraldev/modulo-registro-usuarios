@@ -1,0 +1,34 @@
+[
+  {
+    "Id": "8944098",
+    "Nombre": "EMPLEADO PRIVADO"
+  },
+  {
+    "Id": "9411998",
+    "Nombre": "EMPLEADO PUBLICO"
+  },
+  {
+    "Id": "8426018",
+    "Nombre": "COMISIONISTA"
+  },
+  {
+    "Id": "8400004",
+    "Nombre": "SERVICIOS PROFESIONALES Y TÉCNICOS"
+  },
+  {
+    "Id": "9800211",
+    "Nombre": "DIRECTOR GENERAL"
+  },
+  {
+    "Id": "9900904",
+    "Nombre": "ESTUDIANTE O MENOR DE EDAD SIN OCUPACIÓN"
+  },
+  {
+    "Id": "9900908",
+    "Nombre": "AMA DE CASA"
+  },
+  {
+    "Id": "9900905",
+    "Nombre": "DESEMPLEADO"
+  }
+]
