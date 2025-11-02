@@ -3,7 +3,7 @@
   <version>1.0.0.9</version>
   <url>https://github.com/thoraldev/modulo-registro-usuarios/releases/download/v1.0.0.8/Formulario_v1.0.0.8.zip</url>
   
-  <changelog>https://raw.githubusercontent.com/thoraldev/modulo-registro-usuarios/refs/heads/main/README.md</changelog>
+  <changelog>https://github.com/thoraldev/modulo-registro-usuarios/blob/main/README.md</changelog>
   
   <executable>Formulario de practica.exe</executable>
   
