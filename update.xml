@@ -6,8 +6,6 @@
   <changelog>https://github.com/thoraldev/modulo-registro-usuarios/releases/tag/v1.0.0.8</changelog>
   
   <executable>Formulario de practica.exe</executable>
-
-  <checksum algorithm="SHA256">sha256:99b8707e5d3cf5236ab5fb41886c6b996555784ed378abdf78cf7af11b4296bb</checksum>
   
   <mandatory>true</mandatory>
 </item>
